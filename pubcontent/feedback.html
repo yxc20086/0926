@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{margin:0;padding:0;}
+        ul,li,dl,dd,dt,p{margin:0;padding:0;}
+        ul,li{list-style:none;}
+        /*柱状图样式*/
+        .histogram-container{position:relative;margin-left:20px;margin-top:10px;margin-bottom:25px;}
+        .histogram-bg-line{border-width:0 1px 1px 1px;overflow:hidden;width:99%;}
+        .histogram-bg-line ul{overflow:hidden;border-width:1px 0 0 0;}
+        .histogram-bg-line li{float:left;width:20%;/*根据.histogram-bg-line下的ul里面li标签的个数来控制比例*/overflow:hidden;}
+        .histogram-content{position:absolute;left:0;top:0;width:99%;height:100%;}
+        .histogram-content ul{height:100%;}
+        .histogram-content li{float:left;height:100%;width:20%;/*根据直方图的个数来控制这个width比例*/text-align:center;position:relative;}
+        .histogram-box{position:relative;display:inline-block;height:100%;width:20px;}
+        .histogram-content li a{position:absolute;bottom:0;right:0;display:block;width:20px;}
+        .histogram-content li .name{position:absolute;bottom:-20px;left:0;white-space:nowrap;display:inline-block;width:100%;font-size:12px;}
+        .histogram-bg-line li div{height:60px;/*控制单元格的高度及百分比的高度，使百分数与线条对齐*/}
+    </style>
+</head>
+<body>
+<div style="text-align: center;position: relative;top: 15px;">
+    <img src="../img/yellow.jpg" alt="">性价比
+    <img src="../img/blue.jpg" alt="">安全性
+    <img src="../img/green.jpg" alt="">质量
+</div>
+<div class="histogram-container" id="histogram-container">
+    <!--背景方格-->
+    <div class="histogram-bg-line">
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+        </ul>
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+        </ul>
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+        </ul>
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+        </ul>
+        <ul>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+            <li><div></div></li>
+        </ul>
+    </div>
+    <!--柱状条-->
+    <div class="histogram-content">
+        <ul>
+            <li id="five">
+                <span class="histogram-box"><a id="five_price" style="height:0;background:#fcc16c;"></a></span>
+                <span class="histogram-box"><a id="five_safe" style="height:0;background:#86a5fa;"></a></span>
+                <span class="histogram-box"><a id="five_qua" style="height:0;background:#11cc6e;"></a></span>
+                <span class="name">5星</span>
+            </li>
+            <li>
+                <span class="histogram-box"><a id="four_price" style="height:0;background:#fcc16c;"></a></span>
+                <span class="histogram-box"><a id="four_safe" style="height:0;background:#86a5fa;"></a></span>
+                <span class="histogram-box"><a id="four_qua" style="height:0;background:#11cc6e;"></a></span>
+                <span class="name">4星</span>
+            </li>
+            <li>
+                <span class="histogram-box"><a id="three_price" style="height:0;background:#fcc16c;"></a></span>
+                <span class="histogram-box"><a id="three_safe" style="height:0;background:#86a5fa;"></a></span>
+                <span class="histogram-box"><a id="three_qua" style="height:0;background:#11cc6e;"></a></span>
+                <span class="name">3星</span>
+            </li>
+            <li>
+                <span class="histogram-box"><a id="two_price" style="height:0;background:#fcc16c;"></a></span>
+                <span class="histogram-box"><a id="two_safe" style="height:0;background:#86a5fa;"></a></span>
+                <span class="histogram-box"><a id="two_qua" style="height:0;background:#11cc6e;"></a></span>
+                <span class="name">2星</span>
+            </li>
+            <li>
+                <span class="histogram-box"><a id="one_price" style="height:0;background:#fcc16c;"></a></span>
+                <span class="histogram-box"><a id="one_safe" style="height:0;background:#86a5fa;"></a></span>
+                <span class="histogram-box"><a id="one_qua" style="height:0;background:#11cc6e;"></a></span>
+                <span class="name">1星</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    var five_p = document.getElementById('five_price');
+    var five_s = document.getElementById('five_safe');
+    var five_q = document.getElementById('five_qua');
+    var four_p = document.getElementById('four_price');
+    var four_s = document.getElementById('four_safe');
+    var four_q = document.getElementById('four_qua');
+    var three_p = document.getElementById('three_price');
+    var three_s = document.getElementById('three_safe');
+    var three_q = document.getElementById('three_qua');
+    var two_p = document.getElementById('two_price');
+    var two_s = document.getElementById('two_safe');
+    var two_q = document.getElementById('two_qua');
+    var one_p = document.getElementById('one_price');
+    var one_s = document.getElementById('one_safe');
+    var one_q = document.getElementById('one_qua');
+
+    var new_five_height = 50000;
+    if(new_five_height>100 && new_five_height<1000){
+        new_five_height = new_five_height/10;
+    }else if(new_five_height>=1000){
+        new_five_height = new_five_height/100;
+    }
+    alert(new_five_height);
+
+    five_p.style.height = '50%';
+    five_s.style.height = '80%';
+    five_q.style.height = '30%';
+    four_p.style.height = '50%';
+    four_s.style.height = '80%';
+    four_q.style.height = '30%';
+    three_p.style.height = '50%';
+    three_s.style.height = '80%';
+    three_q.style.height = '30%';
+    two_p.style.height = '50%';
+    two_s.style.height = '80%';
+    two_q.style.height = '30%';
+    one_p.style.height = '50%';
+    one_s.style.height = '80%';
+    one_q.style.height = '30%';
+</script>
+</body>
+</html>
