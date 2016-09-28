@@ -6,99 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no" >
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="pubstyle.css">
-    <style type="text/css">
-        body {background:#fff;margin:0 auto;padding: 0;font:12px Arial;color:#000;line-height:1.2em}
-        div,form,img,ul,ol,li,dl,dt,dd {margin: 0; padding: 0; border: 0;}
-        table,td,tr,th{font-size:12px;}
-        /* 星级评分 */
-        .shop-rating {
-            height: 35px;
-            overflow: hidden;
-            zoom: 1;
-            padding: 2px 0px;
-            position: relative;
-            z-index: 999;
-        }
-        .shop-rating span {
-            height: 23px;
-            display: block;
-            line-height: 23px;
-            float: left;
-        }
-        .shop-rating span.title {
-            width: 125px;
-            text-align: right;
-            margin-right: 5px;
-        }
-        .shop-rating ul {
-            float: left;
-            margin:0;padding:0
-        }
-        .shop-rating .result {
-            margin-left: 20px;
-            padding-top: 2px;
-        }
-        .shop-rating .result span {
-            color: #ff6d02;
-        }
-        .shop-rating .result em {
-            color: #f60;
-            font-family: arial;
-            font-weight: bold;
-        }
-        .shop-rating .result strong {
-            color: #666666;
-            font-weight: normal;
-        }
-        .rating-level,
-        .rating-level a {
-            background: url(star_v2.png) no-repeat scroll 1000px 1000px;
-        }
-        .rating-level {
-            background-position: 0px 0px;
-            width: 120px;
-            height: 23px;
-            position: relative;
-            z-index: 1000;
-        }
-        .rating-level li {
-            display: inline;
-        }
-        .rating-level a {
-            line-height: 23px;
-            height: 23px;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            text-indent: -999em;
-            *zoom: 1;
-            outline: none;
-        }
-        .rating-level a.one-star {
-            width: 20%;
-            z-index: 6;
-        }
-        .rating-level a.two-stars {
-            width: 40%;
-            z-index: 5;
-        }
-        .rating-level a.three-stars {
-            width: 60%;
-            z-index: 4;
-        }
-
-        .rating-level a.four-stars {
-            width: 80%;
-            z-index: 3;
-        }
-        .rating-level a.five-stars {
-            width: 100%;
-            z-index: 2;
-        }
-        .rating-level .current-rating,.rating-level a:hover{background-position:0 -28px;}
-        .rating-level a.one-star:hover,.rating-level a.two-stars:hover,.rating-level a.one-star.current-rating,.rating-level a.two-stars.current-rating{background-position:0 -116px;}
-        .rating-level .three-stars .current-rating,.rating-level .four-stars .current-rating,.rating-level .five-stars .current-rating{background-position:0 -28px;}
-    </style>
 </head>
 <body>
 <form action="" name="evaluate-info">
@@ -122,128 +29,193 @@
         </table>
     </div>
     <div style="background: #f1f1f1;">&nbsp;</div>
-    <div style="background: white;line-height: 0.5">&nbsp;</div>
-    <div class="shop-rating">
-        <span class="title">质&nbsp;&nbsp;&nbsp;&nbsp;量：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <ul class="rating-level" id="stars1">
-            <li><a class="one-star" star:value="1" href="#"></a></li>
-            <li><a class="two-stars" star:value="2" href="#"></a></li>
-            <li><a class="three-stars" star:value="3" href="#"></a></li>
-            <li><a class="four-stars" star:value="4" href="#"></a></li>
-            <li><a class="five-stars" star:value="5" href="#"></a></li>
-        </ul>
-        <span class="result" id="stars1-tips"></span>
-        <input type="hidden" id="stars1-input" name="a" value="" size="2" />
+    <div style="background: white;line-height:2.5;">&nbsp;
+    <div>
+	<table style="margin-left:5%">
+		<tr>
+			<td><span>质&nbsp;&nbsp;&nbsp;&nbsp;量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+			<td>
+			<a href="javascript:click(1)"><img src="star.png" id="star1" value = "1" onTouchend="out(1)"/></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click(2)"><img src="star.png" id="star2" value = "2" onTouchend="out(2)" /></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click(3)"><img src="star.png" id="star3" value = "3" onTouchend="out(3)" /></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click(4)"><img src="star.png" id="star4" value = "4" onTouchend="out(4)"/></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click(5)"><img src="star.png" id="star5" value = "5" onTouchend="out(5)"/></a>&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+	</table>
     </div>
-    <!--
-        # 星级评分
-        # star:value = 分数
-    -->
-    <div class="shop-rating">
-        <span class="title">安&nbsp;&nbsp;&nbsp;&nbsp;全：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <ul class="rating-level" id="stars2">
-            <li><a class="one-star" star:value="1" href="#">1</a></li>
-            <li><a class="two-stars" star:value="2" href="#">2</a></li>
-            <li><a class="three-stars" star:value="3" href="#">3</a></li>
-            <li><a class="four-stars" star:value="4" href="#">4</a></li>
-            <li><a class="five-stars" star:value="5" href="#">5</a></li>
-        </ul>
-        <span class="result" id="stars2-tips"></span>
-        <input type="hidden" id="stars2-input" name="b" value="" size="2" />
+    <div>
+	<table style="margin-left:5%">
+		<tr>
+			<td><span>安&nbsp;&nbsp;&nbsp;&nbsp;全&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+			<td>
+			<a href="javascript:click1(1)"><img src="star.png" id="star21" value = "1" onTouchend="out1(1)"/></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click1(2)"><img src="star.png" id="star22" value = "2" onTouchend="out1(2)" /></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click1(3)"><img src="star.png" id="star23" value = "3" onTouchend="out1(3)" /></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click1(4)"><img src="star.png" id="star24" value = "4" onTouchend="out1(4)"/></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click1(5)"><img src="star.png" id="star25" value = "5" onTouchend="out1(5)"/></a>&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+	</table>   
     </div>
-    <div class="shop-rating">
-        <span class="title">性价比：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <ul class="rating-level" id="stars3">
-            <li><a class="one-star" star:value="1" href="#"></a></li>
-            <li><a class="two-stars" star:value="2" href="#"></a></li>
-            <li><a class="three-stars" star:value="3" href="#"></a></li>
-            <li><a class="four-stars" star:value="4" href="#"></a></li>
-            <li><a class="five-stars" star:value="5" href="#"></a></li>
-        </ul>
-        <span class="result" id="stars3-tips"></span>
-        <input type="hidden" id="stars3-input" name="c" value="" size="2" />
+    <div>
+	<table style="margin-left:5%">
+		<tr>
+			<td><span>性价比&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+			<td>
+			<a href="javascript:click2(1)"><img src="star.png" id="star31" value = "1" onTouchend="out2(1)"/></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click2(2)"><img src="star.png" id="star32" value = "2" onTouchend="out2(2)" /></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click2(3)"><img src="star.png" id="star33" value = "3" onTouchend="out2(3)" /></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click2(4)"><img src="star.png" id="star34" value = "4" onTouchend="out2(4)"/></a>&nbsp;&nbsp;&nbsp;
+			<a href="javascript:click2(5)"><img src="star.png" id="star35" value = "5" onTouchend="out2(5)"/></a>&nbsp;&nbsp;&nbsp;
+			</td>
+		</tr>
+	</table>   
+    </div>
     </div>
     <input type="image" style="margin-top: 5%" class="img-responsive ; center-block" src="bc.png"  onclick="document.forms['evaluate-info'].submit()">
 </form>
 <!-- END 星级评分 -->
 <script type="text/javascript">
-    var Class = {
-        create: function() {
-            return function() {
-                this.initialize.apply(this, arguments); }
+    var check = 0;//该变量是记录当前选择的评分
+    /*out 方法是鼠标移除事件的处理方法，当鼠标移出时，恢复到我的打分情况*/
+    function out(){
+        if(check == 1){//打分是1，设置第一颗星星亮，其他星星暗，其他情况以此类推
+            $("#star1").attr("src","star_red.png");
+            $("#star2").attr("src","star.png");
+            $("#star3").attr("src","star.png");
+            $("#star4").attr("src","star.png");
+            $("#star5").attr("src","star.png");
+        }else if(check == 2){
+            $("#star1").attr("src","star_red.png");
+            $("#star2").attr("src","star_red.png");
+            $("#star3").attr("src","star.png");
+            $("#star4").attr("src","star.png");
+            $("#star5").attr("src","star.png");
+        }else if(check == 3){
+            $("#star1").attr("src","star_red.png");
+            $("#star2").attr("src","star_red.png");
+            $("#star3").attr("src","star_red.png");
+            $("#star4").attr("src","star.png");
+            $("#star5").attr("src","star.png");
+        }else if(check == 4){
+            $("#star1").attr("src","star_red.png");
+            $("#star2").attr("src","star_red.png");
+            $("#star3").attr("src","star_red.png");
+            $("#star4").attr("src","star_red.png");
+            $("#star5").attr("src","star.png");
+        }else if(check == 5){
+            $("#star1").attr("src","star_red.png");
+            $("#star2").attr("src","star_red.png");
+            $("#star3").attr("src","star_red.png");
+            $("#star4").attr("src","star_red.png");
+            $("#star5").attr("src","star_red.png");
+        }else if(check == 0){
+            $("#star1").attr("src","star.png");
+            $("#star2").attr("src","star.png");
+            $("#star3").attr("src","star.png");
+            $("#star4").attr("src","star.png");
+            $("#star5").attr("src","star.png");
         }
     }
-    var Extend = function(destination, source) {
-        for (var property in source) {
-            destination['property'] = source['property'];
+    /*click()点击事件处理，记录打分*/
+    function click(param){
+        check = param;//记录当前打分
+        out();//设置星星数
+    }
+
+    /*out 方法是鼠标移除事件的处理方法，当鼠标移出时，恢复到我的打分情况*/
+    function out1(){
+        if(check == 1){//打分是1，设置第一颗星星亮，其他星星暗，其他情况以此类推
+            $("#star21").attr("src","star_red.png");
+            $("#star22").attr("src","star.png");
+            $("#star23").attr("src","star.png");
+            $("#star24").attr("src","star.png");
+            $("#star25").attr("src","star.png");
+        }else if(check == 2){
+            $("#star21").attr("src","star_red.png");
+            $("#star22").attr("src","star_red.png");
+            $("#star23").attr("src","star.png");
+            $("#star24").attr("src","star.png");
+            $("#star25").attr("src","star.png");
+        }else if(check == 3){
+            $("#star21").attr("src","star_red.png");
+            $("#star22").attr("src","star_red.png");
+            $("#star23").attr("src","star_red.png");
+            $("#star24").attr("src","star.png");
+            $("#star25").attr("src","star.png");
+        }else if(check == 4){
+            $("#star21").attr("src","star_red.png");
+            $("#star22").attr("src","star_red.png");
+            $("#star23").attr("src","star_red.png");
+            $("#star24").attr("src","star_red.png");
+            $("#star25").attr("src","star.png");
+        }else if(check == 5){
+            $("#star21").attr("src","star_red.png");
+            $("#star22").attr("src","star_red.png");
+            $("#star23").attr("src","star_red.png");
+            $("#star24").attr("src","star_red.png");
+            $("#star25").attr("src","star_red.png");
+        }else if(check == 0){
+            $("#star21").attr("src","star.png");
+            $("#star22").attr("src","star.png");
+            $("#star23").attr("src","star.png");
+            $("#star24").attr("src","star.png");
+            $("#star25").attr("src","star.png");
         }
     }
-    function stopDefault( e ) {
-        if ( e && e.preventDefault ){
-            e.preventDefault();
-        }else{
-            window.event.returnValue = false;
-        }
-        return false;
+    /*click()点击事件处理，记录打分*/
+    function click1(param){
+        check = param;//记录当前打分
+        out1();//设置星星数
     }
-    /**
-     * 星星打分组件
-     */
-    var Stars = Class.create();
-    Stars.prototype = {
-        initialize: function(star,options) {
-            this.SetOptions(options); //默认属性
-            var flag = 999; //定义全局指针
-            var isIE = (document.all) ? true : false; //IE?
-            var starlist = document.getElementById(star).getElementsByTagName('a'); //星星列表
-            var input = document.getElementById(this.options.Input) || document.getElementById(star+"-input"); // 输出结果
-            var tips = document.getElementById(this.options.Tips) || document.getElementById(star+"-tips"); // 打印提示
-            var nowClass = " " + this.options.nowClass; // 定义选中星星样式名
-            var len = starlist.length; //星星数量
-            for(i=0;i<len;i++){ // 绑定事件 点击 鼠标滑过
-                starlist[i].value = i;
-                starlist[i].onclick = function(e){
-                    stopDefault(e);
-                    this.className = this.className + nowClass;
-                    flag = this.value;
-                    input.value = this.getAttribute("star:value");
-                    tips.innerHTML = tipsTxt[this.value]
-                }
-                starlist[i].touchmove = function(){
-                    if (flag< 999){
-                        var reg = RegExp(nowClass,"g");
-                        starlist[flag].className = starlist[flag].className.replace(reg,"")
-                    }
-                }
-                starlist[i].touchend = function(){
-                    if (flag< 999){
-                        starlist[flag].className = starlist[flag].className + nowClass;
-                    }
-                }
-            }
-            if (isIE){ //FIX IE下样式错误
-                var li = document.getElementById(star).getElementsByTagName('li');
-                for (var i = 0, len = li.length; i < len; i++) {
-                    var c = li[i];
-                    if (c) {
-                        c.className = c.getElementsByTagName('a')[0].className;
-                    }
-                }
-            }
-        },
-        //设置默认属性
-        SetOptions: function(options) {
-            this.options = {//默认值
-                Input:			"",//设置触保存分数的INPUT
-                Tips:			"",//设置提示文案容器
-                nowClass:	"current-rating"//选中的样式名
-            };
-            Extend(this.options, options || {});
+
+    /*out 方法是鼠标移除事件的处理方法，当鼠标移出时，恢复到我的打分情况*/
+    function out2(){
+        if(check == 1){//打分是1，设置第一颗星星亮，其他星星暗，其他情况以此类推
+            $("#star31").attr("src","star_red.png");
+            $("#star32").attr("src","star.png");
+            $("#star33").attr("src","star.png");
+            $("#star34").attr("src","star.png");
+            $("#star35").attr("src","star.png");
+        }else if(check == 2){
+            $("#star31").attr("src","star_red.png");
+            $("#star32").attr("src","star_red.png");
+            $("#star33").attr("src","star.png");
+            $("#star34").attr("src","star.png");
+            $("#star35").attr("src","star.png");
+        }else if(check == 3){
+            $("#star31").attr("src","star_red.png");
+            $("#star32").attr("src","star_red.png");
+            $("#star33").attr("src","star_red.png");
+            $("#star34").attr("src","star.png");
+            $("#star35").attr("src","star.png");
+        }else if(check == 4){
+            $("#star31").attr("src","star_red.png");
+            $("#star32").attr("src","star_red.png");
+            $("#star33").attr("src","star_red.png");
+            $("#star34").attr("src","star_red.png");
+            $("#star35").attr("src","star.png");
+        }else if(check == 5){
+            $("#star31").attr("src","star_red.png");
+            $("#star32").attr("src","star_red.png");
+            $("#star33").attr("src","star_red.png");
+            $("#star34").attr("src","star_red.png");
+            $("#star35").attr("src","star_red.png");
+        }else if(check == 0){
+            $("#star31").attr("src","star.png");
+            $("#star32").attr("src","star.png");
+            $("#star33").attr("src","star.png");
+            $("#star34").attr("src","star.png");
+            $("#star35").attr("src","star.png");
         }
-    };
-    var Stars1 = new Stars("stars1",{nowClass:"current-rating"});
-    var Stars2 = new Stars("stars2");
-    var Stars3 = new Stars("stars3")
+    }
+    /*click()点击事件处理，记录打分*/
+    function click2(param){
+        check = param;//记录当前打分
+        out2();//设置星星数
+    }
+
 </script>
 
 <script src="jquery-3.1.0.min.js"></script>
@@ -254,7 +226,3 @@
 <script src="pubapp.js"></script>
 </body>
 </html>
-
-
-
-
