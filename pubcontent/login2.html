@@ -52,22 +52,38 @@
 </div>
 <form action="" class="form-group input-form" name="login-info">
     <div class="form-group">
-        <input type="text" placeholder="请输入用户名" class="form-control">
+        <input type="text" id="userName" placeholder="请输入用户名" class="form-control">
     </div>
     <div class="form-group">
-        <input type="password" placeholder="请输入密码" class="form-control">
+        <input type="password" id="password" placeholder="请输入密码" class="form-control">
     </div>
     <br/><br/>
 </form>
     <div class="btn-group login-btm-img">
         <!-- <button type="submit"><img src="../img/d1.png" alt="登录"></button>-->
         <!--<a href="info-qy.html" class="load" type="submit"><img src="../img/d1.png" alt="登录"></a>-->
-        <input type="image"  src="d1.png"  onclick="document.forms['login-info'].submit()">
+        <input type="image"  src="d1.png"  onclick="submit()">
         <!--<span>&nbsp;&nbsp;</span>-->
         <!--<a href="#" class="ret" type="reset"><img src="../img/c2.png" alt="重置"></a>-->
-        <input type="image"  src="c2.png" onclick="document.forms['login-info'].reset(); return false;">
+        <input type="image"  src="c2.png" onclick="reset()">
     </div>
 <script src="jquery-3.1.0.min.js"></script>
 <script src="bootstrap.min.js"></script>
+<script>
+    function submit(){
+        var user = document.getElementById("userName").value;
+        var password = document.getElementById("password").value;
+        if(user == '' || password =='') {
+            alert('请输入完整的登录信息!');
+        }else{
+            /*window.location.href = 'info-qy.html';*/
+            confirm( 'success');
+            /*confirm('登陆成功!');*/
+        }
+    }
+    function reset(){
+        document.forms['login-info'].reset(); return false;
+    }
+</script>
 </body>
 </html>

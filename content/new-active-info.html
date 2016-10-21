@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no" >
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="hgsafe.css">
+    <link rel="stylesheet" href="control/css/zyUpload.css" type="text/css">
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <!-- 引用核心层插件 -->
+    <script type="text/javascript" src="core/zyFile.js"></script>
+    <!-- 引用控制层插件 -->
+    <script type="text/javascript" src="control/js/zyUpload.js"></script>
+    <!-- 引用初始化JS -->
+    <script type="text/javascript" src="demo.js"></script>
+
     <title></title>
 </head>
 <body id="new-qua-info-body">
@@ -82,7 +91,7 @@
             </tr>
         </table>
         <div class="loadpic">           <!--只是样式,需要调用手机文件管理,后期完善-->
-            <img src="pic.png" alt="上传图片" style="margin-left:2%; width:10% ;" >
+            <div id="demo" class="demo"></div>
         </div>
         <input type="image" style="margin-top: 5%" class="img-responsive ; center-block" src="bc.png"  onclick="document.forms['new-active-info'].submit()">
     </form>
@@ -112,11 +121,5 @@
         <input type="image" style="margin-top: 5%" class="img-responsive ; center-block" src="../img/bc.png"  onclick="document.forms['new-check-info'].submit()">
     </form>
 </div>-->
-
-
-    <script src="jquery-3.1.0.min.js"></script>
-    <script src="bootstrap.min.js"></script>
-
-
 </body>
 </html>

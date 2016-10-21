@@ -55,20 +55,18 @@
         var barcode = document.getElementById("barcode").innerHTML;
         var batch = document.getElementById("batch").value;
         if(barcode=='689748555515588778311'&&batch=='20160101'){
-          window.location.href = 'goods-info.html';
+          confirm("basic");
       }else{
-          alert('查询产品批次号不存在!');
-          return document.getElementById("result").innerHTML = "改条码所对应的批次号:&nbsp;"+ batch +"不存在,请重新核对后再输入";
+          return document.getElementById("result").innerHTML = "该条码所对应的批次号:&nbsp;"+ batch +"不存在,请重新核对后再输入";
       }
     }
     function review_search(){
         var barcode = document.getElementById("barcode").innerHTML;
         var batch = document.getElementById("batch").value;
         if(barcode=='689748555515588778311'&&batch=='20160101'){
-            window.location.href = 'goods-detail-info.html';
+            confirm("detail");
         }else{
-            alert('查询产品批次号不存在!');
-            return document.getElementById("result").innerHTML = "改条码所对应的批次号:&nbsp;"+ batch +"不存在,请重新核对后再输入";
+            return document.getElementById("result").innerHTML = "该条码所对应的批次号:&nbsp;"+ batch +"不存在,请重新核对后再输入";
         }
     }
 </script>

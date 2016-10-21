@@ -6,7 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no" >
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" href="hgsafe.css">
-    <title></title>
+    <link rel="stylesheet" href="zyUpload.css" type="text/css">
+
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <!-- 引用核心层插件 -->
+    <script type="text/javascript" src="zyFile.js"></script>
+    <!-- 引用控制层插件 -->
+    <script type="text/javascript" src="zyUpload.js"></script>
+    <!-- 引用初始化JS -->
+    <script type="text/javascript" src="demo.js"></script>
+
 </head>
 <body id="basic-info-body">
 <form action="" method="" class="form-group" name="basic-info-form">
@@ -125,8 +134,8 @@
                 </tr>
         </table>
         </div>
-        <div class="loadpic">
-            <img src="pic.png" alt="上传图片" style="margin:2% ; width:10% ; height:10%" >
+        <div class="loadpic">           <!--只是样式,需要调用手机文件管理,后期完善-->
+            <img src="add_img.png" id="demo" class="demo">
         </div>
     </form>
  <!--
@@ -220,8 +229,6 @@
     </table>-->
     <input type="image" style="margin-top: 5%" class="img-responsive ; center-block" src="bc.png"  onclick="document.forms['basic-info-form'].submit()">
 </form>
-<script src="jquery-3.1.0.min.js"></script>
-<script src="bootstrap.min.js"></script>
 
 </body>
 </html>
